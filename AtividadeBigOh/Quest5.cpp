@@ -22,13 +22,22 @@ int sublistaCrescente(int a[], int n){
 
 int main(){
     int n;
-    cin >> n; 
+    cin >> n;
+    if(n < 2 or n > 1000000000){
+        cout << "Erro de entrada";
+    }
+
     int a[n]; 
     for (int i = 0; i < n; i++){ 
         int t; 
         cin >> t; 
         a[i] = t; 
     }   
+    int s;
+    cin >> s;
+    if(s < 1 or s > 2000000000){
+        cout << "Erro de entrada";
+    }
 
 
     
