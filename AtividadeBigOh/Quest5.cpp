@@ -1,57 +1,41 @@
 #include <iostream>
-#include <chrono>
-using namespace std;
+//9
+//7 17 9 1 21 5 11 3 15
+//12
 
-int sublistaCrescente(int a[], int n){
-    int maior = 1;  //2
-    int temp = 1;   //2
-    for(int i = 0; i < n - 1; i++){     //2, 2n, 2 ( n - 1 )
-        if (a[i] <= a[i+1]){    //4(n-1)
-            temp += 1;  //2(n-1)
-            if (temp > maior){  //1(n-1)
-                maior += 1; //2 (n-1)
+bool checkSomaValorAlvo( int a[], int n, int s){
+    bool res = false;
+    int cont = 0;
+    for(int j = 0 ; j < n; j++){
+        for (int k = j+1; k < n; k++){
+            if (a[j] + a[k] == s){
+                std::cout << "Indice " << j << " + " << k << " = " << s << std::endl;
+                res = true;
+                cont += 1;
             }
         }
-        else{
-            temp = 1;   //1 (n-1)
-        }
-        
     }
-    return maior;   //1
+    std::cout << cont << " Ocorrencias" << std::endl;
+    return res;
 }
 
 int main(){
-    int n;
-    cin >> n;
-    if(n < 2 or n > 1000000000){
-        cout << "Erro de entrada";
+    int n; //Tamanho da array
+    std::cin >> n;
+    int a[n]; //criar array
+    int s; 
+     
+    for(int i = 0; i < n; i++){ //Atribui valores aos N elementos do Array
+        std::cin >> a[i];
     }
 
-    int a[n]; 
-    for (int i = 0; i < n; i++){ 
-        int t; 
-        cin >> t; 
-        a[i] = t; 
-    }   
-    int s;
-    cin >> s;
-    if(s < 1 or s > 2000000000){
-        cout << "Erro de entrada";
+    std::cin >> s; //Número alvo da soma de um par de números da Array
+
+    if(checkSomaValorAlvo(a, n, s)){
+        std::cout << "S" << std::endl;
     }
-
-
-    
-
-    auto beg = std::chrono::high_resolution_clock::now();
-    cout << sublistaCrescente(a, n) << endl;
-    // Fim do cronômetro
-    auto end = std::chrono::high_resolution_clock::now();
-
-
-    auto dur = end - beg; // Duração do cronômetro
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(dur);
-    std::cerr << n << " Processing time: "
-
-    << duration.count() << " milliseconds(s)"<< std::endl;
-
+    else{
+        std::cout << "N" << std::endl;
+    }
+    return 0;
 }
