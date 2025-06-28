@@ -4,19 +4,19 @@
 //12
 
 bool checkSomaValorAlvo( int a[], int n, int s){
-    bool res = false;
-    int cont = 0;
-    for(int j = 0 ; j < n; j++){
-        for (int k = j+1; k < n; k++){
-            if (a[j] + a[k] == s){
+    bool res = false; //2
+    int cont = 0; //2
+    for(int j = 0 ; j < n; j++){ //2, 1n, 2n
+        for (int k = j+1; k < n; k++){ //3(n), 1n(n), 2n(n)
+            if (a[j] + a[k] == s){ //4n(n)
                 std::cout << "Indice " << j << " + " << k << " = " << s << std::endl;
-                res = true;
-                cont += 1;
+                res = true; //1n(n)
+                cont += 1; //2n(n)
             }
         }
     }
     std::cout << cont << " Ocorrencias" << std::endl;
-    return res;
+    return res; //1
 }
 
 int main(){

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
 
-const int INITIAL_CAPACITY = 1000, INCREASE_CAPACITY = 1000;
+const int INITIAL_CAPACITY = 10000, INCREASE_CAPACITY = 10000;
 
 int* increase_capacity(int* data, int& capacity, int& size) {
     int* new_array = new int[capacity + INCREASE_CAPACITY];

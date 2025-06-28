@@ -5,7 +5,7 @@ using namespace std;
 int sublistaCrescente(int a[], int n){
     int maior = 1;  //2
     int temp = 1;   //2
-    for(int i = 0; i < n - 1; i++){     //2, 2n, 2 ( n - 1 )
+    for(int i = 0; i < n - 1; i = i + 1){     //2, 2n, 2 ( n - 1 )
         if (a[i] <= a[i+1]){    //4(n-1)
             temp += 1;  //2(n-1)
             if (temp > maior){  //1(n-1)
@@ -16,7 +16,7 @@ int sublistaCrescente(int a[], int n){
             temp = 1;   //1 (n-1)
         }
         
-    }
+    } 
     return maior;   //1
 }
 
